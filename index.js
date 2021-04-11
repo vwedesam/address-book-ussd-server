@@ -41,6 +41,8 @@ app.post("/", (req, res, next) => {
         });
     }
 
+    console.log(text)
+
     if (text == '') {
         // reset App local
         req.app.locals.userId = null;
@@ -50,13 +52,15 @@ app.post("/", (req, res, next) => {
         response += "2. View Contact List \n"
         response += "0. Exit ";
     }
+    else if (text == '0') {
+        response = "END have a nice day !!! \n"
+    }
     else if (text == '1') {
         response = "CON Enter Contact Information \n"
         response += "e.g name, email, phoneNumber \n";
     }else if (text == '2') {
         response = "CON select \n"
-        response += " 1. Continue \n"
-        response += " 0. Exit ";
+        response += " 1. To Continue "
     }
     else if (text == '2*1') {
         getContactList(req)
@@ -124,8 +128,8 @@ function clientErrorHandler(err, req, res, next) {
 }
 app.use(clientErrorHandler)
 
-// app.listen(port, () => {
-//     console.log(`server listening on ${port}`)
-// })
+app.listen(port, () => {
+    console.log(`server listening on ${port}`)
+})
 
-module.exports = app;
+// module.exports = app;
