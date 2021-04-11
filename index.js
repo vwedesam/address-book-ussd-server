@@ -124,8 +124,8 @@ function clientErrorHandler(err, req, res, next) {
 }
 app.use(clientErrorHandler)
 
-app.listen(port, () => {
-    console.log(`server listening on ${port}`)
-})
+// app.listen(port, () => {
+//     console.log(`server listening on ${port}`)
+// })
 
-// module.exports = app;
+module.exports = app;
