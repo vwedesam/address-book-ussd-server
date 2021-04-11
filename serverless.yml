@@ -1,0 +1,16 @@
+service: address-book-ussd-server
+
+provider: 
+  name: aws
+  runtime: nodejs14.x
+  memorySize: 512
+  timeout: 30
+  stage: production
+  region: eu-west-2
+
+functions:
+  api:
+    handler: lambda.handler
+    events:
+      - http: ANY {proxy+}
+      - http: ANY /
